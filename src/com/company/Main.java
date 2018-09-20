@@ -1,11 +1,17 @@
 package com.company;
 
+import javax.swing.*;
+import java.io.IOException;
+
 /**
  * Created by Packard Bell on 18.09.2018.
  */
 public class Main {
-    public static void main(String[] args){
-        Diary diar = new Diary();
-        System.out.println(diar);
+    public static void main(String[] args) throws IOException {
+        //new Bufer();
+       //new MainWindowGui();
+      //  new CreateEntry(100,"Fuck second","only Fuck");
+        // new ListEntry();
+        new MainWindowGui();
     }
 }

@@ -1,6 +1,8 @@
 package com.company;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -25,8 +27,18 @@ public class MainWindowGui {
         menuBar.add(menuFile);
         menuFile.add(itemNewEntry);
         menuFile.add(itemExit);
+
+        itemExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                baseWindow.dispose();
+            }
+        });
        // Text Area at the Center
-       JTextArea ta = new JTextArea();
+       JPanel centerPanel = new JPanel((LayoutManager) new JTextArea(""));
+       JButton reset = new JButton("Reset");
+       centerPanel.add(reset); // Components Added using Flow Layout
+
        //creating panel
        JPanel leftPanel = new JPanel();
        leftPanel.setSize(0,600);
@@ -37,7 +49,7 @@ public class MainWindowGui {
         //adding components to the Frame
        baseWindow.getContentPane().add(BorderLayout.PAGE_START,menuBar);
        baseWindow.getContentPane().add(BorderLayout.WEST,leftPanel);
-       baseWindow.getContentPane().add(BorderLayout.CENTER, ta);
+       baseWindow.getContentPane().add(BorderLayout.CENTER, centerPanel);
        baseWindow.setVisible(true);
 
     }
