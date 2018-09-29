@@ -1,4 +1,4 @@
-package com.company;
+package com.company.desktop_gui;
 
 import javax.swing.*;
 

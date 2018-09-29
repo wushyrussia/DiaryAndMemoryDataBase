@@ -1,29 +1,30 @@
-package com.company;
+package com.company.backend;
 
 /**
  * This Class have
  * Created by Packard Bell on 18.09.2018.
  */
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.Date;
-public class Diary {
-    private String entry;
-    private String fullDocument;
-    private String header;
-    private String tag;
-    private String date;
+public class Entry {
+    private String entry = null;
+    private String fullDocument = null;
+    private String header = "header";
+    private String tag = "someone tag";
+    private String date = null;
 
-    Diary(){
-        setDate();
+
+    public void createDocument() throws IOException {
         setHeader();
-        setEntry();
+        setDate();
         setTag();
-    }
-    public String createDocument(){
-
+        setEntry();
         fullDocument = header+"\n"+date+"\n"+entry+"\n"+tag;
-        return fullDocument;
+        createEntry(fullDocument,header);
     }
     public void readDocument(){}
     public void getHeader(){
@@ -58,11 +59,17 @@ public class Diary {
         this.date = dateForm.format(entryDate);
     }
    public String toString() {
-    return createDocument();
+    return fullDocument;
     }
 
-    public void getFullDocument() {
-    System.out.println(toString());
+   public void createEntry(String documentEntry, String headerEntry) throws IOException {
+
+        File fileEntry = new File("/Program Files/Diary/Data/" +headerEntry+".txt");
+
+        FileWriter writerEntry = new FileWriter(fileEntry);
+        writerEntry.write(documentEntry);
+        writerEntry.flush();
+        writerEntry.close();
     }
 
 }
