@@ -6,10 +6,15 @@ package com.mycompany.DiaryAndMemoryDataBase;
  */
 import java.io.File;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.Date;
+
+
+
+import java.io.*;
 public class Entry {
     private String entry = null;
     private String fullDocument = null;
@@ -18,44 +23,18 @@ public class Entry {
     private String date = null;
 
 
-    public void createDocument() throws IOException {
-        setHeader();
+    public void createDocument(String header, String tag, String entry) throws IOException {
+        this.header = header;
+		this.tag = tag;
+		this.entry = entry;
         setDate();
-        setTag();
-        setEntry();
-        fullDocument = header+"\n"+date+"\n"+entry+"\n"+tag;
+        fullDocument = header+"\n"+"\n"+date+"\n"+"\n"+entry+"\n"+"\n"+tag;
         createEntry(fullDocument,header);
     }
-    public void readDocument(){}
-    public void getHeader(){
-    }
-    public void getEntry(){
-        System.out.println(entry);
-    }
-    public void getTag(){
-    }
-    public void getDate(){
-        System.out.println(date);
-    }
-
-    public void setHeader(){
-        System.out.println("Enter the Header:");
-        Scanner enter = new Scanner(System.in);
-        this.header = enter.nextLine();
-    }
-    public void setEntry(){
-        System.out.println("Enter the Entry:");
-        Scanner enter = new Scanner(System.in);
-        this.entry = enter.nextLine();
-    }
-    public void setTag() {
-        System.out.println("Enter the Tags:");
-        Scanner enter = new Scanner(System.in);
-        this.tag = enter.nextLine();
-    }
+    
     public void setDate(){
         Date entryDate = new Date();
-        SimpleDateFormat dateForm = new SimpleDateFormat("dd:MM:yy \nHH:mm");
+        SimpleDateFormat dateForm = new SimpleDateFormat("dd.MM.yy HH:mm");
         this.date = dateForm.format(entryDate);
     }
    public String toString() {
@@ -64,12 +43,38 @@ public class Entry {
 
    public void createEntry(String documentEntry, String headerEntry) throws IOException {
 
-        File fileEntry = new File("/Program Files/Diary/Data/" +headerEntry+".txt");
+		   File fileEntry = new File("/storage/64D6-1231/Diary/Data/" +headerEntry+".dbd");
 
         FileWriter writerEntry = new FileWriter(fileEntry);
         writerEntry.write(documentEntry);
+		
         writerEntry.flush();
         writerEntry.close();
     }
+	
+   public static  String readEntry(String path) {
+		 String entryDoc = "";
+		 String line = "";
+		 File entryFile = new File(path);
+		   try
+			   {
+				   FileInputStream inputStream = new FileInputStream(entryFile);
+				   BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+				   try
+					   {
+						   while ((line = bufferedReader.readLine()) != null)
+							   {
+                                entryDoc = entryDoc+line+"\n";
+							   }
+					   }
+				   catch (IOException e)
+					   {}
+			   }
+		   catch (FileNotFoundException e)
+			   {}
 
+
+		 
+		 return entryDoc;
+	 }
 }

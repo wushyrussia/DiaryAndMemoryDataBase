@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mycompany.DiaryAndMemoryDataBase" >
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-		
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -19,6 +19,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+		
+		<activity
+			android:name=".WriteActivity"
 
+			android:parentActivityName="com.mycompany.DiaryAndMemoryDataBase.MainActivity" >
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.mycompany.DiaryAndMemoryDataBase.MainActivity" />
+		</activity>
+		
+		<activity
+			android:name=".ReadActivity"
+
+			android:parentActivityName="com.mycompany.DiaryAndMemoryDataBase.MainActivity" >
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.mycompany.DiaryAndMemoryDataBase.MainActivity" />
+		</activity>
+		<activity
+			android:name=".WriteTaskActivity"
+
+			android:parentActivityName="com.mycompany.DiaryAndMemoryDataBase.MainActivity" >
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.mycompany.DiaryAndMemoryDataBase.MainActivity" />
+		</activity>
+    </application>
 </manifest>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:visibility="visible"
+		android:id="@+id/writeLayout"
+		android:background="#FEF7D6">
+
+		<LinearLayout
+			android:layout_height="680dp"
+			android:layout_width="match_parent"
+			android:orientation="vertical">
+
+			<EditText
+				android:id="@+id/header"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:ems="10"
+				android:hint="enter the header"/>
+
+			<EditText
+				android:id="@+id/tag"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:ems="10"
+				android:hint="enter the tags"/>
+
+			<EditText
+				android:id="@+id/entry"
+				android:inputType="textMultiLine"
+				android:layout_width="match_parent"
+				android:ems="10"
+				android:layout_height="match_parent"
+				android:paddingEnd="20dp"
+				android:gravity="top"
+				android:hint="enter the entry"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:minHeight="40dp">
+
+			<Button
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Save"
+				android:id="@+id/saveButton"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>
+

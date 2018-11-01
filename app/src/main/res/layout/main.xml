@@ -31,105 +31,69 @@
 			android:text="Read"
 			android:id="@+id/readButton"/>
 
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="tasks"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="links"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="reminders"/>
+
 	</LinearLayout>
 
 	<LinearLayout
 		android:layout_height="match_parent"
 		android:layout_width="match_parent"
 		android:background="#FEF7D6"
-		android:orientation="vertical">
+		android:orientation="vertical"
+		android:id="@+id/mainLinearLayout">
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:visibility="visible"
+		android:id="@+id/layoutRead">
+
+		<LinearLayout
+			android:layout_height="680dp"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_gravity="bottom"
+			android:id="@+id/menuLayoutRead">
+
+		</LinearLayout>
 
 		<LinearLayout
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:orientation="vertical"
-			android:visibility="gone"
-			android:id="@+id/writeLayout">
+			android:orientation="horizontal"
+			android:minHeight="40dp"
+			android:layout_gravity="bottom">
 
-			<LinearLayout
-				android:layout_height="680dp"
-				android:layout_width="match_parent"
-				android:orientation="vertical">
-
-				<EditText
-					android:layout_height="wrap_content"
-					android:layout_width="match_parent"
-					android:ems="10"
-					android:hint="enter the header"/>
-
-				<EditText
-					android:layout_height="wrap_content"
-					android:layout_width="match_parent"
-					android:ems="10"
-					android:hint="enter the tags"/>
-
-				<EditText
-					android:inputType="textMultiLine"
-					android:layout_width="match_parent"
-					android:ems="10"
-					android:layout_height="match_parent"
-					android:paddingEnd="20dp"
-					android:id="@+id/editTextWriter"
-					android:gravity="top"
-					android:hint="enter the entry"/>
-
-			</LinearLayout>
-
-			<LinearLayout
+			<Button
 				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="vertical"
-				android:minHeight="40dp">
-
-				<Button
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:text="Save"
-					android:id="@+id/saveButton"/>
-
-			</LinearLayout>
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_height="match_parent"
-			android:layout_width="match_parent"
-			android:orientation="vertical"
-			android:visibility="visible">
-
-			<LinearLayout
-				android:layout_height="680dp"
-				android:layout_width="match_parent"
-				android:orientation="vertical"
+				android:layout_width="wrap_content"
+				android:text="Back"
 				android:layout_gravity="bottom"
-				android:id="@+id/menuLayoutRead">
+				android:id="@+id/backButton"/>
 
-			</LinearLayout>
-
-			<LinearLayout
+			<Button
 				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
-				android:minHeight="40dp"
-				android:layout_gravity="bottom">
-
-				<Button
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:text="Back"
-					android:layout_gravity="bottom"
-					android:id="@+id/backButton"/>
-
-				<Button
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:text="Next"
-					android:layout_gravity="right"
-					android:id="@+id/nextButton"/>
-
-			</LinearLayout>
+				android:layout_width="wrap_content"
+				android:text="Next"
+				android:layout_gravity="right"
+				android:id="@+id/nextButton"/>
 
 		</LinearLayout>
+	</LinearLayout>
 
 	</LinearLayout>
 
