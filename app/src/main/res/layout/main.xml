@@ -34,7 +34,8 @@
 		<Button
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:text="tasks"/>
+			android:text="tasks"
+			android:id="@+id/Task"/>
 
 		<Button
 			android:layout_height="wrap_content"
@@ -55,45 +56,75 @@
 		android:orientation="vertical"
 		android:id="@+id/mainLinearLayout">
 
-	<LinearLayout
-		android:layout_height="match_parent"
-		android:layout_width="match_parent"
-		android:orientation="vertical"
-		android:visibility="visible"
-		android:id="@+id/layoutRead">
-
 		<LinearLayout
-			android:layout_height="680dp"
+			android:layout_height="match_parent"
 			android:layout_width="match_parent"
 			android:orientation="vertical"
-			android:layout_gravity="bottom"
-			android:id="@+id/menuLayoutRead">
+			android:id="@+id/layoutTask"
+			android:visibility="visible">
+
+			<ScrollView
+				android:layout_height="680dp"
+				android:layout_width="match_parent"
+				android:id="@+id/SrollTaskView">
+
+				<LinearLayout
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:orientation="vertical"
+					android:id="@+id/layoutTaskScroll"/>
+
+			</ScrollView>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="+"
+				android:layout_gravity="right"
+				android:id="@+id/addTask"/>
 
 		</LinearLayout>
 
 		<LinearLayout
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:orientation="horizontal"
-			android:minHeight="40dp"
-			android:layout_gravity="bottom">
+			android:orientation="vertical"
+			android:visibility="gone"
+			android:id="@+id/layoutRead">
 
-			<Button
-				android:layout_height="wrap_content"
-				android:layout_width="wrap_content"
-				android:text="Back"
+			<LinearLayout
+				android:layout_height="680dp"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
 				android:layout_gravity="bottom"
-				android:id="@+id/backButton"/>
+				android:id="@+id/menuLayoutRead">
 
-			<Button
+			</LinearLayout>
+
+			<LinearLayout
 				android:layout_height="wrap_content"
-				android:layout_width="wrap_content"
-				android:text="Next"
-				android:layout_gravity="right"
-				android:id="@+id/nextButton"/>
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:minHeight="40dp"
+				android:layout_gravity="bottom">
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="Back"
+					android:layout_gravity="bottom"
+					android:id="@+id/backButton"/>
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="Next"
+					android:layout_gravity="right"
+					android:id="@+id/nextButton"/>
+
+			</LinearLayout>
 
 		</LinearLayout>
-	</LinearLayout>
 
 	</LinearLayout>
 

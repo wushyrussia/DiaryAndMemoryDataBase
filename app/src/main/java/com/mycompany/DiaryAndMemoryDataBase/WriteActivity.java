@@ -10,11 +10,12 @@ import java.io.*;
 
 public class WriteActivity extends Activity
 {
-	String entry ="";
+	String paths ="";
     EditText headerText;
-	EditText tagText;
+//	EditText tagText;
 	EditText entryText;
-    String path ="/storage/64D6-1231/Diary/Data/";
+		String path =Environment.getExternalStorageDirectory() + 
+		File.separator + "Diary/Data/";;
 	EditText entryEditText;
 	Button saveButton;
 		
@@ -26,7 +27,7 @@ public class WriteActivity extends Activity
 				
 				 saveButton = (Button) findViewById(R.id.saveButton);
 				 headerText = (EditText)findViewById(R.id.header);
-				 tagText = (EditText)findViewById(R.id.tag);
+			//	 tagText = (EditText)findViewById(R.id.tag);
 				 entryText=(EditText)findViewById(R.id.entry);
 			  
 				 saveButton.setOnClickListener(onClButtonSave);
@@ -35,9 +36,9 @@ public class WriteActivity extends Activity
 				@Override
 				public void onClick(View v) {
 						writeEntry();
-						entry=Entry.readEntry(path+headerText.getText().toString() + ".dbd");
+						paths=path+headerText.getText().toString() + ".dbd";
 						Intent intent = new Intent (WriteActivity.this, ReadActivity.class);
-						intent.putExtra("entry",entry);
+						intent.putExtra("path",paths);
 						startActivity(intent);
 						
 					
@@ -49,8 +50,10 @@ public class WriteActivity extends Activity
 				Entry entr = new Entry();
 				try
 					{
-						entr.createDocument(headerText.getText().toString(),tagText.getText().toString(),entryText.getText().toString());
-					}
+						entr.createDocument(headerText.getText().toString(),entryText.getText().toString());
+		//				entr.createDocument(headerText.getText().toString(),tagText.getText().toString(),entryText.getText().toString());
+					
+						}
 				catch (IOException e)
 					{}
 			}

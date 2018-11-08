@@ -26,12 +26,13 @@
 				android:ems="10"
 				android:hint="enter the header"/>
 
-			<EditText
+		<!--	<EditText
 				android:id="@+id/tag"
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
 				android:ems="10"
 				android:hint="enter the tags"/>
+			-->
 
 			<EditText
 				android:id="@+id/entry"

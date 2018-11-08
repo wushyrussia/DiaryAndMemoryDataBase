@@ -19,16 +19,16 @@ public class Entry {
     private String entry = null;
     private String fullDocument = null;
     private String header = "header";
-    private String tag = "someone tag";
+    //private String tag = "someone tag";
     private String date = null;
 
 
-    public void createDocument(String header, String tag, String entry) throws IOException {
+    public void createDocument(String header, String entry) throws IOException {
         this.header = header;
-		this.tag = tag;
+		//this.tag = tag;
 		this.entry = entry;
         setDate();
-        fullDocument = header+"\n"+"\n"+date+"\n"+"\n"+entry+"\n"+"\n"+tag;
+        fullDocument = header+"\n"+"\n"+date+"\n"+"\n"+entry+"\n"+"\n";
         createEntry(fullDocument,header);
     }
     
@@ -69,10 +69,23 @@ public class Entry {
 					   }
 				   catch (IOException e)
 					   {}
+				   try
+					   {
+						  
+						   bufferedReader.close();
+					   }
+				   catch (IOException e)
+					   {}
+				   try
+					   {
+						   inputStream.close();
+					   }
+				   catch (IOException e)
+					   {}
 			   }
 		   catch (FileNotFoundException e)
 			   {}
-
+          
 
 		 
 		 return entryDoc;

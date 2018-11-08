@@ -1,10 +1,9 @@
 package com.mycompany.DiaryAndMemoryDataBase;
 import android.app.*;
 import android.content.*;
-import android.graphics.*;
-import android.graphics.drawable.*;
 import android.os.*;
 import android.widget.*;
+import java.util.concurrent.*;
 
 public class ReadActivity extends Activity
 {
@@ -14,17 +13,20 @@ public class ReadActivity extends Activity
 			{
 				super.onCreate(savedInstanceState);
 				setContentView(R.layout.read_activity);
-				
 				entryEditText = (TextView)findViewById(R.id.myEntryView);
-				
-				Intent intent = getIntent();
-				String path = intent.getStringExtra("path");
-				String document = Entry.readEntry((path));
-				//document = setTag(document);
-				ElemsDiary elemsDiary = new ElemsDiary(document,entryEditText);
-				
-				//elemsDiary.setArticle(document);
-				//entryEditText.setText(document);
+				entryEditText.setText("loading entry");
+					tryConnectToWatch();
 				}
 				
+				void tryConnectToWatch(){
+						entryEditText = (TextView)findViewById(R.id.myEntryView);
+						Intent intent = getIntent();
+						String path = intent.getStringExtra("path");
+						String document;
+						document = Entry.readEntry((path));
+						
+						new ElemsDiary(document,entryEditText);
+				}
+				
+
 }
